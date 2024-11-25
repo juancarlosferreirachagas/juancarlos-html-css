@@ -1,0 +1,590 @@
+
+/* --- Variáveis Globais do Site --- */
+:root {
+    /* Definindo as cores principais */
+    --cor-primaria: #64b5f6; 
+    --cor-primaria-escura: #0762ab; 
+    --cor-secundaria: #43ff4c; 
+    --fundo-escuro: #121212; 
+    --fundo-claro: #1f1f1f; 
+    --texto-claro: #ffffff; 
+    --texto-suave: #b0b0b0; 
+
+    /* Definindo valores para espaçamentos */
+    --espaco-mini: 8px;
+    --espaco-pequeno: 15px;
+    --espaco-medio: 20px;
+    --espaco-grande: 30px;
+
+    /* Bordas e sombreamento */
+    --borda-arredondada: 10px; /* Arredondamento das bordas */
+    --sombra-pequena: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    --sombra-grande: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+
+    /* Animações e transições */
+    --transicao-padrao: all 0.3s ease; /* Transição padrão */
+    --transicao-suave: all 0.5s ease-in-out; /* Transição suave */
+}
+
+/* --- Reset de Estilos Padrão do Navegador --- */
+*, *::before, *::after {
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimentos padrão */
+    box-sizing: border-box; /* Define o box-sizing */
+    font-family: 'Poppins', sans-serif; /* Define a fonte padrão */
+}
+
+/* --- Estilo Base do Corpo do Site --- */
+body {
+    background-color: var(--fundo-escuro); /* Cor de fundo da página */
+    color: var(--texto-claro); /* Cor padrão do texto */
+    line-height: 1.6; /* Altura das linhas */
+    min-height: 100vh; /* Altura mínima da página */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Direção das colunas */
+}
+
+/* --- Container Principal (Layout Centralizado) --- */
+.container-principal {
+    max-width: 1200px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container */
+    padding: var(--espaco-grande); /* Preenchimento interno */
+    width: 90%; /* Largura do container */
+    flex-grow: 1; /* Expande para ocupar o espaço disponível */
+    background-color: var(--fundo-claro); /* Cor de fundo */
+    border-radius: var(--borda-arredondada); /* Bordas arredondadas */
+    box-shadow: var(--sombra-grande); /* Sombra ao redor */
+}
+
+/* --- Barra de Navegação (Sticky e Blurring) --- */
+.navegacao {
+    background-color: var(--fundo-claro); /* Cor de fundo da barra */
+    padding: var(--espaco-medio); /* Espaçamento interno */
+    border-radius: var(--borda-arredondada); /* Bordas arredondadas */
+    box-shadow: var(--sombra-pequena); /* Sombra */
+    position: sticky; /* Barra fixa no topo */
+    top: 0; /* Posicionada no topo */
+    z-index: 1000; /* Sobrepõe outros elementos */
+    backdrop-filter: blur(10px); /* Efeito de desfoque */
+    margin-bottom: var(--espaco-grande); /* Margem inferior */
+    transition: background-color 0.3s ease; /* Transição de cor */
+}
+
+/* --- Lista de Links de Navegação (Horizontal e Responsivo) --- */
+.navegacao__lista {
+    display: flex; /* Flexbox para organizar links */
+    justify-content: center; /* Centraliza os links */
+    align-items: center; /* Alinha os itens verticalmente */
+    gap: 2rem; /* Espaçamento entre os links (ajustado para uma unidade relativa) */
+    list-style: none; /* Remove estilo de lista */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove padding padrão */
+    flex-wrap: wrap; /* Permite que os itens se ajustem em múltiplas linhas em telas pequenas */
+    font-size: 1rem; /* Tamanho da fonte ajustável */
+}
+
+/* --- Links de Navegação --- */
+.navegacao__link {
+    color: var(--texto-claro); /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+    padding: var(--espaco-pequeno) var(--espaco-medio); /* Espaçamento interno */
+    border-radius: var(--borda-arredondada); /* Bordas arredondadas */
+    position: relative; /* Para o efeito */
+    display: inline-block; /* Exibe como bloco */
+    transition: var(--transicao-padrao); /* Transição padrão */
+}
+
+/* --- Efeito de Linha Sob os Links --- */
+.navegacao__link::after {
+    content: ''; /* Elemento vazio */
+    position: absolute; /* Posicionamento absoluto */
+    bottom: 0; /* Posiciona na base do link */
+    left: 50%; /* Centraliza horizontalmente */
+    width: 0; /* Largura inicial */
+    height: 2px; /* Altura da linha */
+    background-color: var(--cor-primaria); /* Cor da linha */
+    transition: width 0.3s ease; /* Animação */
+    transform: translateX(-50%); /* Centraliza */
+}
+
+/* --- Hover nos Links de Navegação (Efeito de Linha e Cor) --- */
+.navegacao__link:hover::after {
+    width: calc(100% - (var(--espaco-medio) * 2)); /* Linha expande no hover */
+}
+.navegacao__link:hover {
+    background-color: var(--cor-primaria-escura); /* Muda cor no hover */
+}
+
+/* --- Cabeçalho com Animação de Entrada --- */
+.cabecalho {
+    text-align: center; /* Centraliza o texto */
+    padding: 0px 0px 0px 0px; /* Reduz o espaçamento superior e inferior */
+    font-size: 1.2rem; /* Reduz o tamanho da fonte */
+    animation: aparecer 1s ease-out; /* Animação de entrada */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+
+/* --- Animação de Entrada para o Cabeçalho --- */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); } /* Início */
+    to { opacity: 1; transform: translateY(0); } /* Fim */
+}
+
+/* --- Imagem de Perfil (Com Efeito de Hover) --- */
+.foto-perfil {
+    width: 180px; /* Largura da imagem */
+    height: 180px; /* Altura */
+    border-radius: 50%; /* Arredonda a imagem */
+    border: 4px solid var(--cor-primaria); /* Borda */
+    box-shadow: var(--sombra-pequena); /* Sombra */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Animações */
+    object-fit: cover; /* Ajusta o conteúdo */
+}
+
+/* --- Hover na Foto de Perfil (Escala e Rotação) --- */
+.foto-perfil:hover {
+    transform: scale(1.2) rotate(3deg); /* Gira e aumenta */
+    border-color: var(--cor-secundaria); /* Muda a cor da borda */
+}
+
+/* --- Título Principal (Com Efeito de Pulsar) --- */
+.cabecalho__titulo {
+    font-size: 3.5rem; /* Tamanho grande */
+    margin-top: var(--espaco-mini); /* Espaçamento superior */
+    color: var(--texto-claro); /* Cor do título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra */
+    animation: pulsar 2s infinite; /* Animação de pulsação */
+}
+
+/* --- Animação de Pulsar para o Título --- */
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); } /* Normal */
+    50% { transform: scale(1.05); } /* Aumenta */
+}
+
+/* --- Seções de Conteúdo --- */
+.secao {
+    margin: var(--espaco-grande) 0; /* Margens em cima e embaixo */
+    padding: var(--espaco-medio); /* Espaçamento interno */
+    border-radius: var(--borda-arredondada); /* Bordas arredondadas */
+    background-color: var(--fundo-claro); /* Cor de fundo */
+    box-shadow: var(--sombra-pequena); /* Sombra */
+}
+
+/* --- Texto do Subtítulo com Efeito Suave --- */
+.cabecalho__subtitulo {
+    font-size: 1.5rem; /* Tamanho */
+    color: var(--texto-suave); /* Cor suave */
+    margin-top: var(--espaco-pequeno); /* Espaçamento */
+}
+
+/* --- Conteúdo Principal (Com Sombras e Bordas Arredondadas) --- */
+.conteudo-principal {
+    display: flex; /* Flexbox para layout lado a lado */
+    flex-direction: row; /* Garante que os itens sejam alinhados em linha (lado a lado) */
+    justify-content: space-between; /* Distribui os itens igualmente, com espaçamento */
+    align-items: flex-start; /* Alinha os itens no topo do container */
+    background-color: var(--fundo-claro); /* Cor de fundo */
+    border-radius: var(--borda-arredondada); /* Bordas arredondadas */
+    padding: 50px; /* Espaçamento interno (ajustado para não ficar exagerado) */
+    margin-bottom: var(--espaco-grande); /* Espaço inferior */
+    box-shadow: var(--sombra-grande); /* Sombra */
+}
+/* --- Seções de Conteúdo --- */
+.secao {
+    margin-bottom: var(--espaco-grande); /* Espaçamento entre seções */
+}
+
+/* --- Título da Seção com Linha de Destaque --- */
+.secao__titulo {
+    font-size: 2rem; /* Tamanho */
+    color: var(--texto-claro); /* Cor do texto */
+    border-bottom: 2px solid var(--cor-secundaria); /* Linha */
+    padding-bottom: var(--espaco-mini); /* Espaço */
+    margin-bottom: var(--espaco-medio); /* Espaço */
+}
+/* --- Container dos Projetos --- */
+.projetos {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+/* --- Estilo de cada Projeto --- */
+.projeto {
+    position: relative;
+    width: calc(33.333% - 20px);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Imagem do Projeto --- */
+.projeto__imagem {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.projeto__imagem_impacta {
+    width: 350px;
+    height: 180px;
+}
+
+
+/* --- Sobreposição no Hover --- */
+.projeto__sobreposicao {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* --- Efeito de Zoom na Imagem ao Hover --- */
+.projeto:hover .projeto__imagem {
+    transform: scale(1.1); /* Zoom ao passar o mouse */
+    opacity: 0%;
+}
+
+/* --- Mostrar a Sobreposição ao Hover --- */
+.projeto:hover .projeto__sobreposicao {
+    opacity: 100%;
+    visibility: visible;
+}
+
+/* --- Título do Projeto --- */
+.projeto__titulo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+/* --- Título do Projeto --- */
+.projeto__titulo:hover {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 10px 0;
+    text-transform: uppercase; /* Letras maiúsculas para dar destaque */
+    transform: scale(1.4);
+    transition: transform 1.4s ease; /* Suavidade na transição */
+}
+
+
+/* --- Descrição do Projeto --- */
+.projeto__descricao {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0px;
+    border: solid 1px white;
+    border-radius: 10px;
+}
+
+.projeto__descricao:hover {
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin: 0px;
+    transform: scale(1.1);
+    transition: transform 1.4s ease-out; /* Suavidade na transição */
+}
+
+/* --- Formulário de Contato --- */
+.formulario-contato {
+    background-color: var(--fundo-claro); /* Define a cor de fundo do formulário como a variável de cor 'fundo-claro' */
+    padding: var(--espaco-grande); /* Define o preenchimento interno do formulário com o valor da variável 'espaco-grande' */
+    border-radius: var(--borda-arredondada); /* Aplica bordas arredondadas ao formulário com o valor da variável 'borda-arredondada' */
+    box-shadow: var(--sombra-grande); /* Aplica uma sombra ao formulário com o valor da variável 'sombra-grande' */
+    max-width: 600px; /* Define a largura máxima do formulário como 600px */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente na página */
+}
+
+/* --- Estilos para os grupos de campos (input, checkbox, radio) --- */
+.form-group, .checkbox-group, .radio-group {
+    margin-bottom: var(--espaco-medio); /* Adiciona uma margem inferior com o valor da variável 'espaco-medio' */
+}
+
+/* --- Estilos para o fieldset (grupo de campos) --- */
+fieldset {
+    padding: 20px; /* Adiciona 20px de preenchimento interno em todos os lados do fieldset */
+    border: 1px solid var(--cor-primaria); /* Define a borda do fieldset com 1px de espessura e a cor 'cor-primaria' */
+    border-radius: var(--borda-arredondada); /* Aplica bordas arredondadas ao fieldset com o valor da variável 'borda-arredondada' */
+    background-color: var(--fundo-claro); /* Define o fundo do fieldset com a cor da variável 'fundo-claro' */
+}
+
+/* --- Estilos para os rótulos dos campos --- */
+.form-group label, .checkbox-group label, .radio-group label {
+    color: var(--texto-suave); /* Define a cor do texto do rótulo com a variável 'texto-suave', uma cor mais suave para os rótulos */
+    font-weight: bold; /* Deixa o texto do rótulo em negrito */
+}
+
+/* --- Estilos para os campos de entrada (input, select, textarea) --- */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%; /* Faz com que os campos de entrada ocupem toda a largura disponível dentro do contêiner */
+    padding: var(--espaco-pequeno); /* Define o preenchimento interno dos campos com o valor da variável 'espaco-pequeno' */
+    margin-top: var(--espaco-mini); /* Adiciona uma margem superior pequena com a variável 'espaco-mini' */
+    border: 1px solid var(--cor-primaria); /* Define uma borda de 1px de espessura com a cor primária */
+    border-radius: var(--borda-arredondada); /* Aplica bordas arredondadas aos campos com o valor da variável 'borda-arredondada' */
+    background-color: #2d2d2d; /* Define o fundo dos campos de entrada com uma cor escura (cinza escuro) */
+    color: var(--texto-claro); /* Define a cor do texto dentro dos campos de entrada com a variável 'texto-claro' (geralmente um tom claro) */
+    transition: var(--transicao-suave); /* Aplica uma transição suave nas mudanças de estilo (ex: mudança de borda ou cor ao focar no campo) */
+}
+
+/* --- Efeito de foco nos campos (quando o campo está selecionado) --- */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: rgb(38, 255, 0); /* Muda a cor da borda para a cor secundária quando o campo recebe o foco */
+    box-shadow: 0 0 5px rgba(255, 112, 67, 0.5); /* Adiciona uma sombra ao redor do campo quando ele é focado, com uma cor suave (laranja) */
+    outline: none; /* Remove o contorno padrão que aparece ao redor do campo quando ele é focado */
+}
+
+/* --- Estilos para a organização e aparência dos checkboxes e radios --- */
+
+/* Grupo de checkboxes */
+.checkbox-group {
+    display: flex; /* Define o layout como flexbox, permitindo o controle de alinhamento dos itens */
+    flex-direction: column; /* Organiza os checkboxes verticalmente, um abaixo do outro */
+    margin-top: 20px; /* Adiciona um espaçamento maior acima do grupo de checkboxes */
+}
+
+/* Estilos para os rótulos (labels) de checkboxes e rádios */
+.checkbox-group label, .radio-group label {
+    display: flex; /* Usa o flexbox para alinhar o conteúdo do label, permitindo um alinhamento mais fácil */
+    align-items: center; /* Centraliza verticalmente o checkbox/radio e o texto */
+    margin-bottom: var(--espaco-mini); /* Adiciona um pequeno espaçamento abaixo de cada rótulo */
+}
+
+/* Estilo específico para os inputs de checkbox e radio */
+.checkbox-group input[type="checkbox"],
+.radio-group input[type="radio"] {
+    margin-right: 10px; /* Adiciona um espaçamento à direita do checkbox/radio, criando distância entre o ícone e o texto */
+}
+
+/* Estilo para os checkboxes, aumentando seu tamanho */
+.checkbox-group input[type="checkbox"] {
+    transform: scale(1.2); /* Aumenta o tamanho do checkbox em 1.2 vezes, deixando-o mais visível */
+}
+
+/* --- Estilos para os botões no formulário --- */
+
+/* Container para os botões (com ações do formulário) */
+.form-actions {
+    display: flex;
+    gap: var(--espaco-pequeno);
+    justify-content: space-between;
+    margin-top: var(--espaco-grande); /* Espaçamento adicional acima dos botões */
+}
+
+/* Estilo comum para todos os botões dentro do .form-actions */
+.form-actions .botao {
+    padding: var(--espaco-pequeno) var(--espaco-medio); /* Adiciona espaçamento interno (topo e baixo pequeno, laterais médios) */
+    border-radius: var(--borda-arredondada); /* Arredonda as bordas do botão */
+    background-color: var(--cor-primaria); /* Define a cor de fundo principal do botão */
+    color: var(--texto-claro); /* Define a cor do texto dentro do botão */
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    transition: var(--transicao-suave); /* Adiciona uma transição suave para os efeitos de hover/foco */
+}
+
+/* Efeitos quando o botão é hover (passa o mouse por cima) */
+.form-actions .botao:hover {
+    background-color: var(--cor-secundaria); /* Altera a cor de fundo para a cor secundária quando o mouse está sobre o botão */
+    box-shadow: var(--sombra-pequena); /* Aplica uma sombra pequena ao redor do botão para efeito visual */
+    outline: none; /* Remove a borda de foco padrão do navegador */
+    box-shadow: 0 0 5px rgba(100, 181, 246, 0.6); /* Adiciona uma sombra mais intensa ao foco do botão */
+}
+
+/* Estilo específico para o botão de reset (reiniciar) */
+.form-actions .botao[type="reset"] {
+    background-color: #555; /* Define uma cor de fundo cinza escuro para o botão de reset */
+}
+
+/* Efeitos para o botão de reset quando está em hover */
+.form-actions .botao[type="reset"]:hover {
+    background-color: #777; /* Altera a cor de fundo para um cinza mais claro quando o mouse passa por cima */
+}
+
+/* --- Botões do Formulário --- */
+/* Estilos para o botão */
+.botao {
+    padding: var(--espaco-pequeno) var(--espaco-medio); /* Espaçamento interno (topo e fundo pequeno, laterais médias) */
+    background-color: var(--cor-primaria); /* Cor de fundo do botão, usando uma variável para a cor primária */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: var(--borda-arredondada); /* Arredonda as bordas do botão */
+    color: var(--texto-claro); /* Cor do texto, usando a variável para garantir boa legibilidade */
+    font-size: 1rem; /* Define o tamanho da fonte como 1rem (tamanho padrão, geralmente 16px) */
+    cursor: pointer; /* Muda o cursor para uma mãozinha, indicando que o botão é clicável */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adiciona uma transição suave para a mudança de cor de fundo e para o efeito de transformação (movimento) */
+}
+
+/* Estilos quando o botão está em estado de hover (passando o mouse sobre ele) */
+.botao:hover {
+    background-color: var(--cor-secundaria); /* Altera a cor de fundo para a cor secundária quando o mouse está sobre o botão */
+    transform: translateY(-4px); /* Eleva o botão um pouco para simular um efeito de clique, fazendo o botão subir */
+}
+
+/* Estilos para quando o botão está em foco (ao ser selecionado ou clicado) */
+.botao:focus {
+    outline: 3px solid var(--cor-secundaria); /* Aplica uma borda de 3px em torno do botão para indicar que ele está em foco, usando a cor secundária */
+}
+
+/* --- Rodapé --- */
+.rodape {
+    text-align: center; /* Centraliza o texto */
+    padding: var(--espaco-medio); /* Espaçamento */
+    background-color: var(--fundo-escuro); /* Cor de fundo */
+    color: var(--texto-suave); /* Cor do texto */
+    position: relative; /* Posição relativa */
+}
+
+/* --- Redes Sociais (Estilização dos Ícones) --- */
+.redes-sociais {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens na lista */
+}
+
+.rede-social__link {
+    display: flex; /* Alinha o ícone e o texto lado a lado */
+    align-items: center; /* Alinha verticalmente */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: var(--texto-claro); /* Cor do texto */
+    margin: 0 var(--espaco-pequeno); /* Espaçamento entre os links */
+}
+
+.rede-social__icone {
+    width: 40px; /* Largura do ícone */
+    height: 40px; /* Altura do ícone */
+    margin-right: var(--espaco-mini); /* Espaço entre ícone e texto */
+}
+
+.rede-social__link:hover .rede-social__icone {
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+}
+
+/* --- Estilo de Resposta de Sucesso ou Erro --- */
+.mensagem {
+    margin-top: var(--espaco-grande); /* Espaçamento superior */
+    padding: var(--espaco-grande); /* Espaçamento interno */
+    background-color: var(--cor-secundaria); /* Cor de fundo para mensagens */
+    border-radius: var(--borda-arredondada); /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto */
+    color: var(--texto-claro); /* Cor do texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+    .navegacao__lista {
+        flex-direction: column; /* Muda o layout para coluna */
+    }
+
+    .cabecalho__titulo {
+        font-size: 2.5rem; /* Reduz o tamanho do título */
+    }
+
+    .cabecalho__subtitulo {
+        font-size: 1.2rem; /* Reduz o tamanho do subtítulo */
+    }
+
+    .foto-perfil {
+        width: 150px; /* Ajusta a largura da foto */
+        height: 150px; /* Ajusta a altura da foto */
+    }
+
+    .formulario-contato {
+        grid-template-columns: 1fr; /* Muda o layout para uma coluna */
+    }
+
+    .form-group {
+        gap: var(--espaco-pequeno); /* Reduz o espaço entre os elementos */
+    }
+
+    .projeto {
+        width: calc(50% - 20px); /* 2 itens por linha em telas menores que 1024px */
+    }
+
+    .projeto {
+        width: 100%; /* 1 item por linha em telas pequenas */
+    }
+
+    .projeto__descricao .projeto__descricao:hover .projeto__titulo .projeto__titulo:hover {
+        font-size: 0.4rem;
+    }
+
+    .conteudo-principal {
+        padding: 2px;
+    }
+
+    /* Ajuste dos ícones e textos */
+    .icon {
+        font-size: 0.5rem; /* Aumenta o tamanho dos ícones */
+    }
+
+    .texto {
+        font-size: 0.5rem; /* Ajusta o tamanho do texto */
+    }
+
+    .projeto__imagem {
+        width: 150px;
+    }
+
+
+}
+
+/* Para telas menores que 480px */
+@media (max-width: 480px) {
+    .cabecalho__titulo {
+        font-size: 2rem; /* Reduz o tamanho do título para telas pequenas */
+    }
+
+    .cabecalho__subtitulo {
+        font-size: 1rem; /* Reduz o tamanho do subtítulo */
+    }
+
+    .navegacao__lista {
+        gap: var(--espaco-pequeno); /* Reduz o espaçamento entre os itens da lista */
+    }
+
+    .foto-perfil {
+        width: 120px; /* Reduz a largura da foto */
+        height: 120px; /* Reduz a altura da foto */
+    }
+
+    /* Ajuste dos ícones e textos */
+    .icon {
+        font-size: 0.4rem; /* Reduz o tamanho dos ícones */
+    }
+
+    .texto {
+        font-size: 0.6rem; /* Ajusta o tamanho do texto */
+    }
+
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Carlos - Entre em contato</title>
+    <link rel="icon" href="livros.png">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container-principal">
+        <!-- Navegação -->
+        <nav class="navegacao">
+            <ul class="navegacao__lista">
+                <li><a href="index.html" class="navegacao__link">Sobre mim</a></li>
+                <li><a href="project.html" class="navegacao__link">Projetos</a></li>
+                <li><a href="contact.html" class="navegacao__link">Entre em contato</a></li>
+            </ul>
+        </nav>
+    
+        <!-- Cabeçalho -->
+        <header class="cabecalho">
+            <img src="./img/fotopessoal.png" alt="Foto de Juan Carlos" class="foto-perfil">
+            <h1 class="cabecalho__titulo">Entre em contato</h1>
+            <h2 class="cabecalho__subtitulo">Desenvolvedor Web</h2>
+        </header>
+    
+        <!-- Formulário de Contato -->
+        <main>
+            <section class="secao">
+                <h3 class="secao__titulo">Entre em contato</h3>
+                <p class="secao__texto">
+                    Gostou do meu trabalho? Ficaria feliz em conversar sobre possíveis colaborações ou tirar dúvidas sobre qualquer um dos meus projetos. Você pode entrar em contato comigo por meio dos seguintes canais:
+                </p>
+                <p class="secao__texto">
+                    Não hesite em me enviar uma mensagem. Estou sempre aberto a novas oportunidades e parcerias!
+                </p>
+            </section>
+            
+            <!-- Formulário -->
+            <form method="POST" class="formulario-contato">
+                <!-- Nome -->
+                <div class="form-group">
+                    <label for="tx-nome">Nome Completo:</label>
+                    <input type="text" name="nome" id="tx-nome" placeholder="Seu nome" required aria-label="Nome Completo">
+                </div>
+
+                <!-- E-mail -->
+                <div class="form-group">
+                    <label for="tx-email">E-mail:</label>
+                    <input type="email" name="email" id="tx-email" placeholder="Seu e-mail" required aria-label="E-mail">
+                </div>
+
+                <!-- Disciplina -->
+                <div class="form-group">
+                    <label for="se-disciplina">Qual disciplina te interessa mais?</label>
+                    <select name="disciplina" id="se-disciplina" required aria-label="Disciplina">
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option>Desenvolvimento web</option>
+                        <option>Programação Orientada a Objetos</option>
+                        <option>Engenharia de Software</option>
+                        <option>Linguagem de Programação</option>
+                        <option>Lógica da Programação</option>
+                    </select>
+                </div>
+
+                <!-- Linguagens Conhecidas -->
+                <!-- Linguagens Conhecidas -->
+                <fieldset class="fieldset">
+                    <legend>Quais linguagens você conhece?</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="linguagens" value="csharp"> C#</label>
+                        <label><input type="checkbox" name="linguagens" value="java"> Java</label>
+                        <label><input type="checkbox" name="linguagens" value="js"> JavaScript</label>
+                        <label><input type="checkbox" name="linguagens" value="python"> Python</label>
+                        <label><input type="checkbox" name="linguagens" value="php"> PHP</label>
+                        <label><input type="checkbox" name="linguagens" value="ruby"> Ruby</label>
+                    </div>
+                </fieldset>
+
+                <!-- Botões de Enviar e Limpar -->
+                <div class="form-actions">
+                    <button type="submit" class="botao">Enviar</button>
+                    <button type="reset" class="botao">Limpar</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="rodape">
+            <ul class="redes-sociais">
+                <li>
+                    <a href="https://www.github.com/juancarlosferreirachagas" target="_blank" rel="noopener noreferrer" class="rede-social__link">
+                        <img src="./img/github.svg" alt="GitHub logo" class="rede-social__icone">
+                        <p class="rede-social__texto">GitHub</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/juancarlosferreirachagas/" target="_blank" rel="noopener noreferrer" class="rede-social__link">
+                        <img src="./img/linkedin.svg" alt="LinkedIn logo" class="rede-social__icone">
+                        <p class="rede-social__texto">LinkedIn</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="rede-social__link">
+                        <img src="./img/youtube.svg" alt="YouTube logo" class="rede-social__icone">
+                        <p class="rede-social__texto">YouTube</p>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

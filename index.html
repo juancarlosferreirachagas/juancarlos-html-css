@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Definindo a codificação de caracteres como UTF-8 para garantir a correta exibição de caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Meta tag para tornar o site responsivo em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador. Importante para SEO -->
+    <title>Juan Carlos - Desenvolvedor Web</title>
+    <!-- Favicon: ícone exibido na aba do navegador -->
+    <link rel="icon" href="livros.png">
+    <!-- Link para o arquivo de estilos externo (CSS) -->
+    <link rel="stylesheet" href="estilo.css">
+    <!-- Importação da fonte "Poppins" do Google Fonts, escolhendo pesos específicos para otimizar o carregamento -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Meta tags para SEO e compartilhamento em redes sociais -->
+    <meta name="description" content="Site pessoal de Juan Carlos, desenvolvedor web apaixonado por tecnologia e inovação, focado em arquitetura de sistemas, segurança da informação e desenvolvimento full-stack.">
+    <meta name="keywords" content="desenvolvedor web, full-stack, segurança da informação, arquitetura de sistemas, React, Node.js, SQL">
+    <meta name="author" content="Juan Carlos">
+    <!-- Open Graph meta tags para compartilhamento no Facebook e LinkedIn -->
+    <meta property="og:title" content="Juan Carlos - Desenvolvedor Web">
+    <meta property="og:description" content="Site pessoal de Juan Carlos, desenvolvedor web com paixão por tecnologia e inovação.">
+    <meta property="og:image" content="imagem_capa.jpg">
+    <meta property="og:url" content="https://www.juancarlos.dev">
+</head>
+<body>
+    <!-- Container principal que envolve todo o conteúdo da página -->
+    <div class="container-principal">
+        <!-- Navegação principal -->
+        <nav class="navegacao">
+            <ul class="navegacao__lista">
+                <li><a href="index.html" class="navegacao__link" title="Página Sobre Mim">Sobre mim</a></li>
+                <li><a href="project.html" class="navegacao__link" title="Meus Projetos">Projetos</a></li>
+                <li><a href="contact.html" class="navegacao__link" title="Entrar em Contato">Entre em contato</a></li>
+            </ul>
+        </nav>
+        <!-- Cabeçalho com informações de apresentação -->
+        <header class="cabecalho">
+            <!-- Link para o perfil do GitHub, abrirá em uma nova aba -->
+            <a href="https://www.github.com/juancarlosferreirachagas" target="_blank" rel="noopener noreferrer" class="perfil__link" aria-label="Acesse meu perfil no GitHub">
+                <!-- Foto de perfil do usuário com atributo alt para acessibilidade -->
+                <img src="./img/fotopessoal.png" alt="Foto de Juan Carlos" class="foto-perfil" loading="lazy">
+            </a>
+            <!-- Título principal da página -->
+            <h1 class="cabecalho__titulo">Olá, eu sou Juan Carlos!</h1>
+            <!-- Subtítulo com uma breve descrição do profissional -->
+            <h2 class="cabecalho__subtitulo">Desenvolvedor Web apaixonado por tecnologia e inovação</h2>
+        </header>
+        <!-- Conteúdo principal da página -->
+        <main>
+            <!-- Seção sobre o usuário -->
+            <section class="secao">
+                <!-- Título da seção -->
+                <h3 class="secao__titulo">Sobre mim</h3>
+                <!-- Parágrafo inicial apresentando a formação e interesses do desenvolvedor -->
+                <p class="secao__texto">
+                    Olá, meu nome é Juan Carlos e sou um estudante dedicado de Análise e Desenvolvimento de Sistemas, com uma forte paixão por desenvolvimento de software, arquitetura de sistemas e segurança da informação. Ao longo da minha formação, venho buscando me tornar um profissional full-stack, com foco não apenas em desenvolvimento de interfaces e lógica de programação, mas também em soluções de infraestrutura, segurança e redes.
+                </p>
+                <!-- Parágrafo explicando os interesses profissionais, tecnologias e boas práticas que o desenvolvedor está aprendendo -->
+                <p class="secao__texto">
+                    Tenho um grande interesse em explorar todas as camadas de um sistema, desde a arquitetura até a implementação de soluções seguras e escaláveis, sempre unindo qualidade de código e eficiência. Minha jornada profissional também inclui a busca constante por aprender novas tecnologias e paradigmas, como programação orientada a objetos (POO), banco de dados SQL, UI/UX e frameworks como React e Node.js.
+
+                    Valorizo o trabalho em equipe e estou sempre disposto a colaborar, tanto ensinando quanto aprendendo. Acredito que o sucesso de um projeto depende de um esforço conjunto e que a troca constante de conhecimentos é essencial para o crescimento profissional. Meu objetivo é evoluir não apenas como programador, mas como um profissional completo, que pode lidar com os desafios técnicos e os aspectos estratégicos de cada projeto.
+                </p>
+                <!-- Parágrafo sobre os planos futuros de carreira -->
+                <p class="secao__texto">
+                    No futuro, pretendo me aprofundar cada vez mais em arquitetura de software, DevOps e segurança, buscando entender o ciclo completo de desenvolvimento e operação de sistemas. Estou em busca de oportunidades que me permitam crescer intelectual e tecnicamente, e contribuir de forma significativa para o sucesso de projetos inovadores.
+                </p>
+            </section>
+        </main>
+        <!-- Rodapé com links para redes sociais -->
+        <footer class="rodape">
+            <!-- Lista de redes sociais -->
+            <ul class="redes-sociais">
+                <!-- Link para o GitHub -->
+                <li>
+                    <a href="https://www.github.com/juancarlosferreirachagas" target="_blank" rel="noopener noreferrer" class="rede-social__link" aria-label="Visite meu perfil no GitHub">
+                        <img src="./img/github.svg" alt="Logo do GitHub" class="rede-social__icone">
+                        <span class="rede-social__texto">GitHub</span>
+                    </a>
+                </li>
+                <!-- Link para o LinkedIn -->
+                <li>
+                    <a href="https://www.linkedin.com/in/juancarlosferreirachagas/" target="_blank" rel="noopener noreferrer" class="rede-social__link" aria-label="Conecte-se comigo no LinkedIn">
+                        <img src="./img/linkedin.svg" alt="Logo do LinkedIn" class="rede-social__icone">
+                        <span class="rede-social__texto">LinkedIn</span>
+                    </a>
+                </li>
+                <!-- Link para o YouTube -->
+                <li>
+                    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="rede-social__link" aria-label="Visite meu canal no YouTube">
+                        <img src="./img/youtube.svg" alt="Logo do YouTube" class="rede-social__icone">
+                        <span class="rede-social__texto">YouTube</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <!-- Scripts externos ou personalizados podem ser inseridos aqui -->
+</body>
+</html>
